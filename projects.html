@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Valdora Studios | Service Selection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body { background-color: #0c0f0f; color: #e2e2e2; -webkit-font-smoothing: antialiased; }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0c0f0f; }
+  ::-webkit-scrollbar-thumb { background: #1F1F1F; }
+  ::-webkit-scrollbar-thumb:hover { background: #ffb4ab; }
+  .service-card:hover .service-number { color: #ffb4ab; transform: translateX(8px); }
+</style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "border-low-contrast": "#1F1F1F","surface-container-high": "#282a2b","surface": "#121414",
+          "background": "#121414","surface-container-lowest": "#0c0f0f","on-surface": "#e2e2e2",
+          "primary-container": "#b91c1c","on-primary": "#690005","on-primary-container": "#ffcdc7",
+          "surface-deep": "#000000","surface-variant": "#333535","surface-container": "#1e2020",
+          "text-muted": "#A1A1AA","surface-container-low": "#1a1c1c","primary": "#ffb4ab",
+          "on-background": "#e2e2e2","inverse-primary": "#b91c1c","surface-elevated": "#121212",
+          "surface-container-highest": "#333535","on-surface-variant": "#e4beb9",
+          "inverse-surface": "#e2e2e2","inverse-on-surface": "#2f3131","on-surface-variant": "#e4beb9"
+        },
+        "fontFamily": {
+          "label-md": ["Inter"],"body-md": ["Inter"],"headline-xl": ["Playfair Display"],
+          "headline-sm": ["Playfair Display"],"label-sm": ["Inter"],
+          "headline-md": ["Playfair Display"],"headline-lg": ["Playfair Display"],"body-lg": ["Inter"]
+        },
+        "fontSize": {
+          "label-md": ["14px",{"lineHeight":"20px","letterSpacing":"0.05em","fontWeight":"500"}],
+          "body-md": ["16px",{"lineHeight":"24px","fontWeight":"400"}],
+          "body-lg": ["18px",{"lineHeight":"28px","fontWeight":"400"}],
+          "headline-sm": ["24px",{"lineHeight":"32px","fontWeight":"600"}],
+          "label-sm": ["12px",{"lineHeight":"16px","fontWeight":"600"}],
+          "headline-md": ["32px",{"lineHeight":"40px","fontWeight":"600"}],
+          "headline-lg": ["40px",{"lineHeight":"48px","fontWeight":"700"}]
+        }
+      }
+    }
+  }
+</script>
+</head>
+<body class="bg-background">
+
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full z-50 overflow-y-auto bg-surface-container-lowest w-64 border-r border-border-low-contrast">
+  <div class="p-8 flex flex-col h-full">
+    <div class="mb-12">
+      <h1 class="text-headline-sm font-headline-sm tracking-widest text-primary">VALDORA</h1>
+      <p class="font-label-sm text-label-sm text-text-muted mt-1">COMMAND CENTER</p>
+    </div>
+    <div class="flex flex-col gap-1 flex-grow">
+      <a data-nav="dashboard" href="/" class="flex items-center gap-3 px-4 py-3 font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+        <span class="material-symbols-outlined">dashboard</span> Dashboard
+      </a>
+      <a data-nav="projects" href="/projects" class="flex items-center gap-3 px-4 py-3 font-label-md text-label-md text-primary bg-surface-container-high border-l-2 border-primary">
+        <span class="material-symbols-outlined">account_tree</span> Projects
+      </a>
+      <a data-nav="subscriptions" href="/subscriptions" class="flex items-center gap-3 px-4 py-3 font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+        <span class="material-symbols-outlined">payments</span> Subscriptions
+      </a>
+      <a data-nav="settings" href="#" class="flex items-center gap-3 px-4 py-3 font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+        <span class="material-symbols-outlined">settings</span> Settings
+      </a>
+    </div>
+    <div class="pt-8 border-t border-border-low-contrast flex flex-col gap-1">
+      <a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-primary transition-colors font-label-sm text-label-sm" href="#">
+        <span class="material-symbols-outlined">help</span> Support
+      </a>
+      <a class="flex items-center gap-3 px-4 py-2 text-text-muted hover:text-primary transition-colors font-label-sm text-label-sm" href="#">
+        <span class="material-symbols-outlined">verified_user</span> Security
+      </a>
+      <button class="mt-4 px-4 py-3 bg-primary-container text-on-primary-container font-label-md text-label-md uppercase tracking-widest text-left">
+        Secure Logout
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="ml-64 min-h-screen flex flex-col">
+  <!-- TopAppBar -->
+  <header class="flex justify-between items-center h-16 px-6 border-b border-border-low-contrast sticky top-0 bg-background/80 backdrop-blur-md z-40">
+    <div class="flex items-center gap-4">
+      <span class="font-headline-sm text-headline-sm font-bold text-on-surface">VALDORA STUDIOS</span>
+      <span class="hidden lg:flex items-center gap-2 text-text-muted font-label-sm text-label-sm ml-8">
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Network Status: Active
+      </span>
+      <span class="hidden lg:block text-text-muted font-label-sm text-label-sm ml-4">Security Level: Elite</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="/briefing" class="px-4 py-1.5 border border-border-low-contrast hover:border-primary text-on-surface font-label-sm text-label-sm transition-all">
+        New Request
+      </a>
+      <span class="material-symbols-outlined text-on-surface cursor-pointer">notifications</span>
+      <div class="w-8 h-8 rounded-full border border-border-low-contrast overflow-hidden">
+        <img alt="Client Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm_DVqw1j-JEL_Y-2Hqnyk5_YxA2HWokg7UzVvotf15Kw76lr_vjLNGBKY_qAFyDiUeEf-ESuF8EwxPHrt12Gh17VG_JK8-8V0s0ZbgcOdk767bYFucme65Ei3rd6FJTjZf1CXVwj9Hmh_fSVgmUlVBAyBJqJikVVpEnS_Cc-lVr3xLsEnJYNd4X5cl6PKyGf9NWrzR4Dkt8unvVUscFpdbJ4vms5IYnwApwbT2cVoozpOeHbXzq6k_WnkdU2F0jO-eeBqgwCJ0hY">
+      </div>
+    </div>
+  </header>
+
+  <!-- Dynamic Content -->
+  <div class="p-8 max-w-7xl mx-auto w-full">
+    <header class="mb-12">
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Service Selection</h2>
+      <p class="font-body-lg text-body-lg text-text-muted max-w-2xl">Deploying elite craftsmanship in 7-day sprints. Select your protocol to begin integration.</p>
+    </header>
+
+    <div class="grid grid-cols-12 gap-6">
+      <!-- Service 01 -->
+      <div class="col-span-12 lg:col-span-5 flex flex-col">
+        <div class="service-card group bg-surface-container border border-border-low-contrast p-8 flex flex-col h-full transition-all duration-300 hover:border-primary cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-8 opacity-10"><span class="material-symbols-outlined text-9xl">sync</span></div>
+          <span class="service-number font-headline-md text-headline-md text-text-muted transition-all duration-300 mb-8 block">01</span>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Monthly Upkeep</h3>
+          <p class="font-body-md text-body-md text-text-muted mb-8 italic">"Ensure your software never ages."</p>
+          <div class="space-y-4 mb-12">
+            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm">check_circle</span><span class="font-label-md text-label-md">24/7 Security Monitoring</span></div>
+            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm">check_circle</span><span class="font-label-md text-label-md">Zero-Day Patching</span></div>
+            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-sm">check_circle</span><span class="font-label-md text-label-md">Continuous Performance Tuning</span></div>
+          </div>
+          <div class="mt-auto flex items-end justify-between">
+            <div>
+              <span class="font-label-sm text-label-sm text-text-muted block uppercase">Protocol Cost</span>
+              <span class="font-headline-sm text-headline-sm text-primary">$4,500<span class="text-sm font-label-md text-text-muted">/mo</span></span>
+            </div>
+            <a href="/subscriptions" class="bg-primary-container text-on-primary-container px-6 py-3 font-label-md text-label-md hover:bg-opacity-90 transition-all">
+              INITIATE SUBSCRIPTION
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 02 -->
+      <div class="col-span-12 lg:col-span-7 flex flex-col">
+        <div class="service-card group bg-surface-container border border-border-low-contrast p-8 flex flex-col h-full transition-all duration-300 hover:border-primary cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-8 opacity-10"><span class="material-symbols-outlined text-9xl">rocket_launch</span></div>
+          <span class="service-number font-headline-md text-headline-md text-text-muted transition-all duration-300 mb-8 block">02</span>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">New Website Build</h3>
+          <p class="font-body-md text-body-md text-text-muted mb-8 italic">"From concept to production in 7 days."</p>
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="bg-surface-container-low p-4 border border-border-low-contrast">
+              <span class="font-label-sm text-label-sm text-primary block mb-1">SPEED</span>
+              <span class="font-body-md text-body-md">168-Hour Delivery</span>
+            </div>
+            <div class="bg-surface-container-low p-4 border border-border-low-contrast">
+              <span class="font-label-sm text-label-sm text-primary block mb-1">TECH STACK</span>
+              <span class="font-body-md text-body-md">Elite Scalable Framework</span>
+            </div>
+          </div>
+          <div class="bg-surface-deep border border-border-low-contrast p-6 mb-8">
+            <div class="flex items-center justify-between mb-4">
+              <h4 class="font-label-md text-label-md text-on-surface">Integrated Briefing Calendar</h4>
+              <span class="text-primary font-label-sm text-label-sm">Next Available: Today 14:00</span>
+            </div>
+            <div class="grid grid-cols-7 gap-2">
+              <div class="text-center font-label-sm text-label-sm text-text-muted py-2">M</div>
+              <div class="text-center font-label-sm text-label-sm text-text-muted py-2">T</div>
+              <div class="text-center font-label-sm text-label-sm text-text-muted py-2">W</div>
+              <div class="text-center font-label-sm text-label-sm text-text-muted py-2">T</div>
+              <div class="text-center font-label-sm text-label-sm text-text-muted py-2">F</div>
+              <div class="text-center font-label-sm text-label-sm text-text-muted py-2">S</div>
+              <div class="text-center font-label-sm text-label-sm text-text-muted py-2">S</div>
+              <button class="calendar-day text-text-muted border border-transparent p-2 text-sm opacity-30 cursor-default">28</button>
+              <button class="calendar-day text-text-muted border border-transparent p-2 text-sm opacity-30 cursor-default">29</button>
+              <button class="calendar-day text-text-muted border border-transparent p-2 text-sm opacity-30 cursor-default">30</button>
+              <button class="calendar-day bg-primary-container text-on-primary-container p-2 text-sm font-bold border border-transparent hover:border-primary transition-colors">1</button>
+              <button class="calendar-day border border-border-low-contrast p-2 text-sm hover:border-primary transition-colors">2</button>
+              <button class="calendar-day border border-border-low-contrast p-2 text-sm hover:border-primary transition-colors">3</button>
+              <button class="calendar-day border border-border-low-contrast p-2 text-sm hover:border-primary transition-colors">4</button>
+              <button class="calendar-day border border-border-low-contrast p-2 text-sm hover:border-primary transition-colors">5</button>
+              <button class="calendar-day border border-border-low-contrast p-2 text-sm hover:border-primary transition-colors">6</button>
+              <button class="calendar-day border border-border-low-contrast p-2 text-sm hover:border-primary transition-colors">7</button>
+              <button class="calendar-day border border-border-low-contrast p-2 text-sm hover:border-primary transition-colors">8</button>
+              <button class="calendar-day border border-border-low-contrast p-2 text-sm hover:border-primary transition-colors">9</button>
+              <button class="calendar-day border border-border-low-contrast p-2 text-sm hover:border-primary transition-colors">10</button>
+              <button class="calendar-day border border-border-low-contrast p-2 text-sm hover:border-primary transition-colors">11</button>
+            </div>
+          </div>
+          <div class="mt-auto flex items-end justify-between">
+            <div>
+              <span class="font-label-sm text-label-sm text-text-muted block uppercase">Build Investment</span>
+              <span class="font-headline-sm text-headline-sm text-primary">$12,000<span class="text-sm font-label-md text-text-muted"> flat</span></span>
+            </div>
+            <a href="/briefing" class="bg-on-surface text-surface px-6 py-3 font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all">
+              BOOK BRIEFING
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Global Map -->
+      <div class="col-span-12 mt-4">
+        <div class="bg-surface-container border border-border-low-contrast overflow-hidden h-[300px] relative group">
+          <img class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5XTZReWWSE9Wa9T0nAAnsOZ2VZoCPjfkaOOfOUWWfqtuhshstEVbGBGDBxKjN7HSyFVeZd0MKd-jJ5k83QCkzXt61KG1w499aYrrlvnb9G0vBrSOQCuM1zowWqsJeo5bJW2h8pbIOLDjsjvOWXNXqL21zKS5GqS279GbkIPGF9CoCN_oht4hhHXnD6BtJzKZ5aFJVWbrD6z3odB0IwaNH4HtxabqYPliH-KTare6p_yWZ4o9jEGDftOnnq4XTMTkp7tOTYCRUKq8" alt="Global Command Center Map">
+          <div class="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-8">
+            <h4 class="font-label-md text-label-md text-primary mb-2">GLOBAL NODE STATUS</h4>
+            <div class="flex gap-8">
+              <div><span class="font-label-sm text-label-sm text-text-muted block">NYC NODE</span><span class="font-body-md text-body-md">OPERATIONAL</span></div>
+              <div><span class="font-label-sm text-label-sm text-text-muted block">LONDON NODE</span><span class="font-body-md text-body-md">OPERATIONAL</span></div>
+              <div><span class="font-label-sm text-label-sm text-text-muted block">TOKYO NODE</span><span class="font-body-md text-body-md">OPERATIONAL</span></div>
+            </div>
+          </div>
+          <div class="absolute top-0 right-0 p-8 text-right">
+            <span class="font-label-sm text-label-sm text-text-muted uppercase">Global Reach Deployment</span>
+            <div class="font-headline-sm text-headline-sm">186 MS LATENCY</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="flex justify-between items-center py-6 px-6 border-t border-border-low-contrast mt-auto">
+    <div class="flex items-center gap-4">
+      <span class="font-label-sm font-bold text-primary">VALDORA STUDIOS</span>
+      <span class="text-text-muted font-label-sm text-label-sm">© 2026 Valdora Studios. Encrypted Portal.</span>
+    </div>
+    <div class="flex gap-6">
+      <a class="text-text-muted hover:text-on-surface transition-colors font-label-sm text-label-sm" href="#">Security Policy</a>
+      <a class="text-text-muted hover:text-on-surface transition-colors font-label-sm text-label-sm" href="#">Terms of Service</a>
+      <a class="text-text-muted hover:text-on-surface transition-colors font-label-sm text-label-sm" href="#">Support Protocol</a>
+    </div>
+  </footer>
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
